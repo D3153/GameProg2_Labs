@@ -20,6 +20,6 @@ public class TrapCollision : MonoBehaviour
 
      void OnCollisionEnter(Collision collision){
         m_Rigidbody = collision.gameObject.GetComponent<Rigidbody>();
-        m_Rigidbody.AddForce(-collision.contacts[0].normal);
+        m_Rigidbody.AddForce(-collision.contacts[0].normal*500);
     }
 }

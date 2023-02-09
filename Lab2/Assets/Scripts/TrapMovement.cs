@@ -16,6 +16,6 @@ public class TrapMovement : MonoBehaviour
     void Update()
     {
         // Vector3 rotation = transform.yaw;
-        transform.Rotate(0, 1, 0);
+        transform.Rotate(0, 0.5f, 0);
     }
 }
