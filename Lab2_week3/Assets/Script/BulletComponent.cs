@@ -2,26 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehavior : MonoBehaviour
+public class BulletComponent : MonoBehaviour
 {
-    public GameObject bullet;
+    // public GameObject bullet;
     public float force = 10;
+    Rigidbody bullet;
     // Start is called before the first frame update
     void Start()
     {
-        
+         bullet = GetComponent<Rigidbody>();
+         bullet.AddForce(transform.forward * force,ForceMode.Impulse); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")){
-            SpawnOject();
-        }
-    }
-
-    void SpawnOject()
-    {
-       Instantiate(bullet, transform.position, transform.position);
+       Destroy (gameObject, 5);
     }
 }
