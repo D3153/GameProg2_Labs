@@ -11,7 +11,7 @@ public class BulletComponent : MonoBehaviour
     void Start()
     {
          bullet = GetComponent<Rigidbody>();
-         bullet.AddForce(transform.forward * force,ForceMode.Impulse); 
+         bullet.AddForce(transform.up * force,ForceMode.Impulse); 
     }
 
     // Update is called once per frame
