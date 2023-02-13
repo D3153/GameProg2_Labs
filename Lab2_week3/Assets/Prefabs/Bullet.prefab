@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb33ece1474a700469cf49a2991cb0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 10
+  bullet: {fileID: 0}
+  force: 0
 --- !u!114 &-5568293433535288054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,4 +141,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7071180365548738440}
-  force: 10
+  bulletToSpawn: {fileID: 0}
+  bc: {fileID: 0}

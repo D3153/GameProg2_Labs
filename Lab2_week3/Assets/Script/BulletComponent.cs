@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class BulletComponent : MonoBehaviour
 {
-    // public GameObject bullet;
-    public float force = 10;
-    Rigidbody bullet;
+    public GameObject bullet;
+    public float force;
     // Start is called before the first frame update
     void Start()
     {
-         bullet = GetComponent<Rigidbody>();
-         bullet.AddForce(transform.up * force,ForceMode.Impulse); 
+        GetComponent<Rigidbody>().AddForce(transform.up * force, ForceMode.Impulse); 
     }
 
     // Update is called once per frame
     void Update()
     {
-       Destroy (gameObject, 5);
+       Destroy(gameObject, 5);
     }
 }

@@ -8,8 +8,9 @@ using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
     public GameObject bullet;
-    
-    float totalDownTime = 0;
+    public GameObject bulletToSpawn;
+    public BulletComponent bc;
+    float totalDownTime;
     
     // Start is called before the first frame update
     void Start()
@@ -20,20 +21,22 @@ public class BulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             totalDownTime += Time.deltaTime;
             // Instantiate(bullet, transform.position, transform.rotation);
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            bullet = Instantiate(bullet, transform.position, transform.rotation);
-            Vector3 newPos = Vector3.MoveTowards(bullet.transform.position, Vector3.forward, 5f * totalDownTime);
-            bullet.transform.position = newPos;
-            // transform.Translate(Vector3.forward * totalDownTime);
-            // bullet.AddForce(transform.up * totalDownTime,ForceMode.Impulse);
-             Debug.Log("Long click");
+            bulletToSpawn = Instantiate(bullet, transform.position, transform.rotation);
+            bc = bulletToSpawn.GetComponent<BulletComponent>();
+
+            if (bulletToSpawn != null)
+            {
+                bc.force = totalDownTime*30;
+                totalDownTime = 0;
+            }
+            
         }
     }
 
