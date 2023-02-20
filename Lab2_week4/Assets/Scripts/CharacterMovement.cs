@@ -14,6 +14,7 @@ public class CharacterMovement : MonoBehaviour
     private float runSpeed = 8; 
     public Vector3 move;
     private Animator ac;
+    private float charSpeed; 
  
     private void Start()
     {
@@ -30,14 +31,20 @@ public class CharacterMovement : MonoBehaviour
     {
         // TODO add animation SetParameters for Idle/Walk/Run
         float speed = GetMovementSpeed();
-        if(Input.GetButtonDown("Fire3"))
+        if(speed == 8)
         {
-            speed = 8;
-            ac.SetFloat("Character Speed", speed);
+            charSpeed = 1;
+            ac.SetFloat("Character Speed", charSpeed);
         }
-        else
+        else if (speed == 5)
         {
-            speed = 5;
+            charSpeed = 0.5f;
+            ac.SetFloat("Character Speed", charSpeed);
+        }
+
+        if (Input.GetButton("Fire2"))// Left shift
+        {
+            ac.SetTrigger("Stand To Roll");
         }
     }
 
