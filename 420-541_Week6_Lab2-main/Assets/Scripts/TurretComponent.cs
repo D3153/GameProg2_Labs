@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurretComponent : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TurretComponent : MonoBehaviour
     public Transform target;
     public float turretAngle;
     Vector3 ogDirection;
+    public float health = 1;
+    public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +34,6 @@ public class TurretComponent : MonoBehaviour
         else{
             transform.rotation = Quaternion.LookRotation(ogDirection);
         }
+
     }
 }

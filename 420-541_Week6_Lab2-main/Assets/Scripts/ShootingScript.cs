@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShootingScript : MonoBehaviour
 {
-    
+    TurretComponent turret;
     public GameObject particleSystemPrefab;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,11 @@ public class ShootingScript : MonoBehaviour
             Instantiate(particleSystemPrefab,transform.position,transform.rotation);
             if (Physics.Raycast(ray, out hit)) 
             {
-                // DO things
+                turret = GameObject.Find("Turret").GetComponent<TurretComponent>();
+                if(turret != null){
+                    turret.health -= 0.1f;
+                    turret.slider.value = turret.health;
+                }
             }
         }
     }
