@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
      
     private static GameManager instance;
 
-    public int score;
+    public int score = 0;
+    // public static Text text;
+    // public static Slider slider;
 
     public static GameManager Instance {
         get {
@@ -25,8 +29,12 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
  
-    void UpdateScore()
+    public void UpdateScore()
     {
         score += 1;
+         if ( score == 10)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
