@@ -1356,6 +1356,7 @@ GameObject:
   - component: {fileID: 4646282740415176848}
   - component: {fileID: 1628831220769258218}
   - component: {fileID: -8097499958455590980}
+  - component: {fileID: 7309982745221924537}
   m_Layer: 0
   m_Name: X Bot
   m_TagString: Untagged
@@ -1414,6 +1415,24 @@ MonoBehaviour:
   gravity: {x: 0, y: 0, z: 0}
   playerVelocity: {x: 0, y: 0, z: 0}
   groundedPlayer: 0
+--- !u!143 &7309982745221924537
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418174660309809706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5778166835229571056
 GameObject:
   m_ObjectHideFlags: 0

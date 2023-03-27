@@ -9,8 +9,8 @@ public class StartBtnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Button button = GetComponent<StartBtn>();
-        // button.onClick.AddListener(LoadNextScene);
+        Button button = GetComponent<Button>();
+        button.onClick.AddListener(LoadNextScene);
     }
 
     // Update is called once per frame

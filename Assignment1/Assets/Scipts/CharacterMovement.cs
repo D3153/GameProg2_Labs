@@ -37,7 +37,7 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             animator.applyRootMotion = true; 
-            animator.SetTrigger("DoRoll");
+            animator.SetTrigger("DoFlip");
         }
         
         // Movement
@@ -59,7 +59,7 @@ public class CharacterMovement : MonoBehaviour
         }
         
         // Is Grounded
-        animator.SetBool("IsGrounded",groundedPlayer);
+        // animator.SetBool("IsGrounded",groundedPlayer);
         
     }
 

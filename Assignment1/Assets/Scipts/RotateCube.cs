@@ -15,7 +15,7 @@ public class RotateCube : MonoBehaviour
 	{
 		float rot = Time.deltaTime * speedRot;
 
-        transform.Rotate( new Vector3( rot, rot, rot ) );
+        transform.Rotate( new Vector3( rot, rot, rot ));
 		
 	}
 }
