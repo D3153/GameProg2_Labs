@@ -1355,6 +1355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4646282740415176848}
   - component: {fileID: 1628831220769258218}
+  - component: {fileID: -8097499958455590980}
   m_Layer: 0
   m_Name: X Bot
   m_TagString: Untagged
@@ -1398,6 +1399,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8097499958455590980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418174660309809706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17e464355e1f7c49a6806a744eea42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: {x: 0, y: 0, z: 0}
+  playerVelocity: {x: 0, y: 0, z: 0}
+  groundedPlayer: 0
 --- !u!1 &5778166835229571056
 GameObject:
   m_ObjectHideFlags: 0

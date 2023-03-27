@@ -3109,8 +3109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3e82e049a4e8d4ba7a6da58d74712e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  z: 2
-  cube: {fileID: 6714735091694002578, guid: 45202a4888da4e142bce22dfb68671b6, type: 3}
+  speedRot: 100
 --- !u!1 &328776399
 GameObject:
   m_ObjectHideFlags: 0
