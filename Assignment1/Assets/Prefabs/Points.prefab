@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2654972784529874480}
   - component: {fileID: 5626545815623668879}
   - component: {fileID: 3050805691088270072}
-  - component: {fileID: 6554185769022706438}
   - component: {fileID: 2266094098340170065}
   - component: {fileID: 4267566375971957087}
   - component: {fileID: -8325260893780006342}
+  - component: {fileID: 8608326311959048675}
   m_Layer: 0
   m_Name: Points
   m_TagString: Untagged
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6554185769022706438
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7272354985543040744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2266094098340170065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,3 +128,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   scoreText: {fileID: 0}
+--- !u!65 &8608326311959048675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272354985543040744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}

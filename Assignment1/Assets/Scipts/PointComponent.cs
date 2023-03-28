@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PointComponent : MonoBehaviour
 {
-    public GameManager gameManager;
+    // public GameManager gameManager;
     public Text scoreText;
+    public bool point;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +20,26 @@ public class PointComponent : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collision obj)
+    public void OnTriggerEnter(Collider obj)
     {
-        gameManager = FindObjectOfType<GameManager>();
+        // gameManager = FindObjectOfType<GameManager>();
         if(obj.gameObject.tag == "Point"){
-            Destroy(gameObject);
-            scoreText.text = "Score: " + gameManager.score;
-            Debug.Log(gameManager.score);
+            point = obj.gameObject.tag == "Point";
+            Destroy(point);
+            GameManager.Instance.UpdateScore();
+            scoreText.text = "Score: " + GameManager.Instance.score;
+            Debug.Log(GameManager.Instance.score);
         }
     }
 
-    public void OnCollisionEnter(Collision obj)
-    {
-        gameManager = FindObjectOfType<GameManager>();
-        if(obj.gameObject.tag == "Point"){
-            Destroy(gameObject);
-            scoreText.text = "Score: " + gameManager.score;
-            Debug.Log(gameManager.score);
-        }
-    }
+    // public void OnCollisionEnter(Collision obj)
+    // {
+    //     // gameManager = FindObjectOfType<GameManager>();
+    //     if(obj.gameObject.tag == "Point"){
+    //         Destroy(gameObject);
+    //         GameManager.Instance.UpdateScore();
+    //         scoreText.text = "Score: " + GameManager.Instance.score;
+    //         Debug.Log(GameManager.Instance.score);
+    //     }
+    // }
 }

@@ -20,8 +20,8 @@ public class TrapComponent : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         if(col.CompareTag("Player")){
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // SceneManager.LoadScene(2);
         }
     }
 }
