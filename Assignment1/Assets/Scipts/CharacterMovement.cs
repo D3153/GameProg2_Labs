@@ -97,6 +97,24 @@ public class CharacterMovement : MonoBehaviour
         }  
         playerVelocity = gravity * Time.deltaTime + move * Time.deltaTime * speed;
         controller.Move(playerVelocity);
+        
+        // groundedPlayer = controller.isGrounded;
+       
+        // if (Input.GetButtonDown("Jump") && groundedPlayer)
+        // {
+        //         // Add the jump height to your up velocity; If jumping and grounded.
+        //             gravity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        // }
+        // else if (groundedPlayer)
+        // {
+        //             // Dont apply gravity if grounded and not jumping
+        //             gravity.y = -1.0f;
+        // }
+        // else
+        // {
+        //             // Since there is no physics applied on character controller we have this       applies to reapply gravity if the character is falling ( IE Not grounded )
+        //             gravity.y += gravityValue * Time.deltaTime;
+        // }  
     }
 
     float GetMovementSpeed()

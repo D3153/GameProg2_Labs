@@ -1,0 +1,14 @@
+Main Menu:
+- Btn not working
+
+Main Level
+- Animation not working
+- GameManager not connecting
+	- cant test because ^^ dont work
+- OnTrigger (DeathPlane, Traps)
+
+TODO: After Fixes:
+- Impliment double jump power up
+	- particle system
+
+
