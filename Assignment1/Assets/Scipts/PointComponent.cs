@@ -19,6 +19,16 @@ public class PointComponent : MonoBehaviour
         
     }
 
+    public void OnTriggerEnter(Collision obj)
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        if(obj.gameObject.tag == "Point"){
+            Destroy(gameObject);
+            scoreText.text = "Score: " + gameManager.score;
+            Debug.Log(gameManager.score);
+        }
+    }
+
     public void OnCollisionEnter(Collision obj)
     {
         gameManager = FindObjectOfType<GameManager>();

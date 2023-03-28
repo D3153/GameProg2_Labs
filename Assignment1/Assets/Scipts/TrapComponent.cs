@@ -17,11 +17,11 @@ public class TrapComponent : MonoBehaviour
         
     }
 
-    void onTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         if(col.CompareTag("Player")){
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }

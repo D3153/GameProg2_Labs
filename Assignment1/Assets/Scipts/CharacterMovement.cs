@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-// COPIED FROM LAB 4 NEED TO CHANGE
     public Vector3 gravity;
     public Vector3 playerVelocity;
     public bool groundedPlayer;
-    private float jumpHeight = 1f;
+    private float jumpHeight = 2f;
     private float gravityValue = -9.81f;
     private CharacterController controller;
     private Animator animator;
     private float walkSpeed = 5;
     private float runSpeed = 8; 
+    private int jumpCount = 0;
  
     private void Start()
     {
@@ -59,7 +59,7 @@ public class CharacterMovement : MonoBehaviour
         }
         
         // Is Grounded
-        // animator.SetBool("IsGrounded",groundedPlayer);
+        animator.SetBool("isGrounded",groundedPlayer);
         
     }
 
@@ -78,43 +78,39 @@ public class CharacterMovement : MonoBehaviour
         // Making sure we dont have a Y velocity if we are grounded
         // controller.isGrounded tells you if a character is grounded ( IE Touches the ground)
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer)
+        if (Input.GetButtonDown("Jump") && groundedPlayer && jumpCount==0)
         {
-            if (Input.GetButtonDown("Jump") )
-            {
-                gravity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            }
-            else 
-            {
-                // Dont apply gravity if grounded and not jumping
-                gravity.y = -1.0f;
-            }
+            animator.SetTrigger("Jump");
+            
         }
-        else 
+        else if (Input.GetButtonUp("Jump") && groundedPlayer && jumpCount==0)
         {
-            // Since there is no physics applied on character controller we have this applies to reapply gravity
-            gravity.y += gravityValue * Time.deltaTime;
+               // Add the jump height to your up velocity; If jumping and grounded.
+                  gravity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                  jumpCount ++;
+                  
+        }
+        else if(Input.GetButtonDown("Jump") && jumpCount<2 && !groundedPlayer)
+        {
+            gravity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.SetTrigger("Flip");
+            jumpCount ++;
+        }
+        else if (groundedPlayer)
+        {
+                    // Dont apply gravity if grounded and not jumping
+                     gravity.y = -1.0f;
+                     jumpCount = 0;
+         }
+        else
+        {
+                    // Since there is no physics applied on character controller we have this       applies to reapply gravity if the character is falling ( IE Not grounded )
+                     gravity.y += gravityValue * Time.deltaTime;
         }  
         playerVelocity = gravity * Time.deltaTime + move * Time.deltaTime * speed;
         controller.Move(playerVelocity);
         
-        // groundedPlayer = controller.isGrounded;
        
-        // if (Input.GetButtonDown("Jump") && groundedPlayer)
-        // {
-        //         // Add the jump height to your up velocity; If jumping and grounded.
-        //             gravity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        // }
-        // else if (groundedPlayer)
-        // {
-        //             // Dont apply gravity if grounded and not jumping
-        //             gravity.y = -1.0f;
-        // }
-        // else
-        // {
-        //             // Since there is no physics applied on character controller we have this       applies to reapply gravity if the character is falling ( IE Not grounded )
-        //             gravity.y += gravityValue * Time.deltaTime;
-        // }  
     }
 
     float GetMovementSpeed()

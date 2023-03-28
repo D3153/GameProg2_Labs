@@ -28,4 +28,6 @@ public class PowerUpComponent : MonoBehaviour
         PowerUp.SetActive(false);
         Invoke("Show",3f);
     }
+
+    
 }

@@ -12,3 +12,4 @@ TODO: After Fixes:
 	- particle system
 
 
+Jump if in the air and if it is availlable
