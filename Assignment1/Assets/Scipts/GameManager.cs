@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
      
     private static GameManager instance;
-
-    public int score;
+    public Text scoreText;
+    public static int score = 0;
 
     public static GameManager Instance {
         get {
@@ -24,11 +24,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(scoreText);
     }
  
     public void UpdateScore()
     {
         score += 50;
+        scoreText.text = "Score: " + GameManager.score;
         // if ( score == 10)
         // {
         //     SceneManager.LoadScene(0);

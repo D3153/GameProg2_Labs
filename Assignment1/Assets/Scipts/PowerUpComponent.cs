@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpComponent : MonoBehaviour
 {
-    public GameObject PowerUp;
+    public GameObject powerUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +19,25 @@ public class PowerUpComponent : MonoBehaviour
 
     void Show()
     {
-        PowerUp.SetActive(true);
+        powerUp.SetActive(true);
         Invoke("Hide",3f);
     }
 
     void Hide()
     {
-        PowerUp.SetActive(false);
+        powerUp.SetActive(false);
         Invoke("Show",3f);
     }
 
+    public void OnTriggerEnter(Collider obj)
+    {
+        // gameManager = FindObjectOfType<GameManager>();
+        if(obj.gameObject.tag == "Player"){
+            // Destroy(point);
+            // powerUp.SetActive(false);
+            Destroy(powerUp);
+            CharacterMovement.powerUpTouch = true;
+        }
+    }
     
 }

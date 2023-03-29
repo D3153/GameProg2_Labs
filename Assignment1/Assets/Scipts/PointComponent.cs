@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+// using UnityEngine.UI;
 
 public class PointComponent : MonoBehaviour
 {
     // public GameManager gameManager;
-    public Text scoreText;
-    public bool point;
+    // public Text scoreText;
+    public GameObject point;
+    public GameObject goal;
+    public static int pointCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // public GameObject point;
+        pointCounter = 0;
     }
 
     // Update is called once per frame
@@ -22,24 +25,14 @@ public class PointComponent : MonoBehaviour
 
     public void OnTriggerEnter(Collider obj)
     {
-        // gameManager = FindObjectOfType<GameManager>();
-        if(obj.gameObject.tag == "Point"){
-            point = obj.gameObject.tag == "Point";
-            Destroy(point);
+        if(obj.gameObject.tag == "Player"){
+            point.SetActive(false);
             GameManager.Instance.UpdateScore();
-            scoreText.text = "Score: " + GameManager.Instance.score;
-            Debug.Log(GameManager.Instance.score);
+            Debug.Log(GameManager.score);
+            pointCounter++;
+        }
+        if(pointCounter == 2){
+            goal.SetActive(true);
         }
     }
-
-    // public void OnCollisionEnter(Collision obj)
-    // {
-    //     // gameManager = FindObjectOfType<GameManager>();
-    //     if(obj.gameObject.tag == "Point"){
-    //         Destroy(gameObject);
-    //         GameManager.Instance.UpdateScore();
-    //         scoreText.text = "Score: " + GameManager.Instance.score;
-    //         Debug.Log(GameManager.Instance.score);
-    //     }
-    // }
 }

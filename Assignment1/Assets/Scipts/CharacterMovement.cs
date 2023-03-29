@@ -14,6 +14,7 @@ public class CharacterMovement : MonoBehaviour
     private float walkSpeed = 5;
     private float runSpeed = 8; 
     private int jumpCount = 0;
+    public static bool powerUpTouch = false; 
  
     private void Start()
     {
@@ -90,7 +91,7 @@ public class CharacterMovement : MonoBehaviour
                   jumpCount ++;
                   
         }
-        else if(Input.GetButtonDown("Jump") && jumpCount<2 && !groundedPlayer)
+        else if(Input.GetButtonDown("Jump") && jumpCount<2 && !groundedPlayer && powerUpTouch == true)
         {
             gravity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             animator.SetTrigger("Flip");

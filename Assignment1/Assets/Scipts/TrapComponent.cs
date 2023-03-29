@@ -21,7 +21,6 @@ public class TrapComponent : MonoBehaviour
     {
         if(col.CompareTag("Player")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // SceneManager.LoadScene(2);
         }
     }
 }
